@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>URL Shortener</title>
+	<link rel='icon' href='https://a.strictedu.biz/go/im_/https://i.imgur.com/jQENbMx.png'>
+</head>
+<body>
+	<div id="linkdiv">
+		<a target='_blank' id='link' href='https://linkss.ga/%s'>https://linkss.ga/%s</a>
+
+		<button onclick="copyToClipboard('#link')" id="copybtn">Copy text</button>
+	</div>
+	<style>
+		body {
+			background-color: black;
+		}
+
+		#link {
+			position: absolute;
+			right: 600px;
+			bottom: 300px;
+			text-decoration: none;
+			font-size: 30px;
+			color: white;
+		}
+		#copybtn {
+			position: absolute;
+  			right: 700px;
+			bottom: 250px;
+  			border-radius: 8px;
+  			padding: 10px;
+  			font-size: 20px;
+  			font-family: 'Oswald', sans-serif;
+  			cursor: pointer;
+  			background-color: white;
+		}
+	</style>
+	<script>
+		function copyToClipboard(element) {
+  		var $temp = $("<input>");
+  		$("body").append($temp);
+ 		$temp.val($(element).text()).select();
+  		document.execCommand("copy");
+ 		$temp.remove();
+		}
+	</script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</body>
+</html>
