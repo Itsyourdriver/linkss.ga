@@ -2,6 +2,8 @@
 const express = require('express');
 
 const parser = require('body-parser');
+const Database = require("@replit/database")
+const db = new Database()
 
 const app = express();
 app.use(parser.urlencoded({ extended: true }));
@@ -11,11 +13,12 @@ app.get('/', (req,res) => {
 })
 
 app.post('/shortenurl', (req, res) => {
+
   if (req.body && req.body.url.match('http')) {
    
     let shortenedurl = (Date.now() + ~~(Math.random()*1000)).toString(36);
-    listen(shortenedurl, req.body.url);
-    
+    listen(shortenedurl, req.body.url); 
+  db.set(shortenedurl, shortenedurl).then(() => {});
     res.send(`Success! Go To: https://linkss.ga/${shortenedurl}`)
     
   } else if (!req.body || !req.body.url || !req.body.url.match('http')) {
@@ -29,6 +32,7 @@ const listen = (s, u) => {
   
   app.get(`/${s}`, (req, res) => {
   
+db.get(s, s).then(value => {});
     res.redirect(302, u)
   })
 };
