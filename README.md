@@ -1,5 +1,5 @@
 # linkss.ga
-A normal link shortener. Made for @seagull101's 2021 Tech Fair.
+If you head to the link below, you will now be redirected to https://rotf.tk/
 Link: https://linkss.ga
 # License?
 MIT, this shouldn't be used in a production or enterprise size due to the fact that it doesn't check for valid links first.
